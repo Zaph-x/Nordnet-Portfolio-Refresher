@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "NN-PortfolioRefresher",
+  "version": "1.0",
+  "description": "Automatically refreshes the Nordnet Portfolio list every 5 seconds.",
+  "permissions": ["storage"],
+  "browser_action": {
+    "default_title": "NN Portfolio Refresher",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.nordnet.dk/oversigt/konto/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
