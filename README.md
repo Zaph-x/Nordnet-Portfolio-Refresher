@@ -1,6 +1,6 @@
 # Nordnet Portfolio Refresher
 
-Nordnet Portfolio Refresher is a lightweight Firefox WebExtension that keeps the Nordnet portfolio overview up to date by automatically triggering the built-in "Opdater tabel" action. The popup exposed from the toolbar button lets you pause the refresher or change how frequently it runs.
+Nordnet Portfolio Refresher is a lightweight cross-browser WebExtension (Manifest V3) that keeps the Nordnet portfolio overview up to date by automatically triggering the built-in "Opdater tabel" action. The popup exposed from the toolbar button lets you pause the refresher or change how frequently it runs.
 
 ## Features
 
@@ -10,10 +10,12 @@ Nordnet Portfolio Refresher is a lightweight Firefox WebExtension that keeps the
 
 ## Requirements
 
-- Firefox 90 or newer (tested on desktop Firefox).
+- Firefox 109+ or any Chromium-based browser with Manifest V3 support (Google Chrome, Edge, Brave).
 - `zip` installed if you plan to bundle the extension via the packaging script.
 
 ## Install for Local Testing
+
+### Firefox
 
 1. Open `about:debugging#/runtime/this-firefox` in Firefox.
 2. Click **Load Temporary Add-on…**.
@@ -22,13 +24,21 @@ Nordnet Portfolio Refresher is a lightweight Firefox WebExtension that keeps the
 
 Firefox will keep the add-on active until you close the browser. Reload it from the same page after making code changes.
 
+### Chromium browsers (Chrome, Edge, Brave)
+
+1. Open `chrome://extensions/` (or the equivalent extensions page).
+2. Enable **Developer mode**.
+3. Click **Load unpacked**.
+4. Choose the repository folder.
+5. Pin the toolbar button if you want quick access to the popup.
+
 ## Usage
 
 1. Navigate to `https://www.nordnet.dk/oversigt/konto/`.
 2. Click the extension icon to open the popup.
 3. Use the **Enable automatic refresh** toggle to start or pause the refresher.
 4. Adjust **Refresh interval (seconds)** to control how often the button click runs. Values below 1 second are automatically rounded up.
-5. If the popup reports "Using default settings; saves are unavailable in this session", Firefox blocked access to persistent storage. The refresher still runs with default values, but custom settings will not persist until storage becomes available (e.g., sign into Firefox Sync or grant storage).
+5. If the popup reports "Using default settings; saves are unavailable in this session", the browser blocked access to persistent storage. The refresher still runs with default values, but custom settings will not persist until storage becomes available (e.g., sign into Firefox Sync, grant additional permissions, or ensure the browser profile allows extension storage).
 
 ## Build a Distributable ZIP
 
